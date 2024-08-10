@@ -1,0 +1,24 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    max-width: 1000px;
+    margin: auto;
+}
+
+thead {
+    font-weight: bold;
+    font-size: 1.25 rem;
+    background-color: slategray;
+    color: white;
+}
+
+table {
+    padding: 1.5rem 0;
+}
+
+td {
+    border: solid 1px lightgrey;
+    padding: 1rem;
+}
