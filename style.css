@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+  background-color:rgba(100, 100, 111, 1);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 60px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    box-shadow: white 0px 7px 29px 0px;
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    top: 120px;
+}
+
+button {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+#message {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+#message::before {
+  content: '"';
+  font-size: 2rem;
+}
+
+#message::after {
+  content: '"';
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0 2.6rem;
+  }
+}
