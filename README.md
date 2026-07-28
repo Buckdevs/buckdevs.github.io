@@ -26,8 +26,8 @@ python -m http.server 8080
 
 ## Fonts
 
-Self-hosted WOFF2 in `fonts/` — Bricolage Grotesque (display), Hanken Grotesk
-(body), JetBrains Mono (labels). All open-licensed via Google Fonts. No external
+Self-hosted WOFF2 in `fonts/` — Sora (display), Hanken Grotesk (body),
+JetBrains Mono (labels). All open-licensed via Google Fonts. No external
 requests, no tracking.
 
 ## Deploy
