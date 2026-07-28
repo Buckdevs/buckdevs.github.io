@@ -1,90 +1,169 @@
-const messages = 
-["	Confusion say, baby born in car with automatic transmission, grow to become shiftless bastard	",
-"	Confusion say, baseball wrong. Man with four balls not able to walk	",
-"	Confusion say, better to be pissed off than pissed on	",
-"	Confusion say, boy who go to sleep with sex problem on mind wake up with solution in hand	",
-"	Confusion say, butcher who back into meat grinder get a little behind in his orders	",
-"	Confusion say, couple on seven day honeymoon make whole week	",
-"	Confusion say, cow with no legs, ground beef	",
-"	Confusion say, finding old man in dark, not hard	",
-"	Confusion say, foolish man give wife grand piano, wise man give wife upright organ	",
-"	Confusion say, girl who ride bicycle, peddle ass all over town	",
-"	Confusion say, girl who sit on jockey's lap get hot tip	",
-"	Confusion say, girl who sit on judge's lap get honorable discharge	",
-"	Confusion say, house without bathroom is uncanny	",
-"	Confusion say, if you want pretty nurse, you got to be patient	",
-"	Confusion say, it take many nail to build crib, one screw to fill it	",
-"	Confusion say, man piss in wind, wind piss back	",
-"	Confusion say, man trapped in pantry, have ass in jam	",
-"	Confusion say, man under wheelbarrow playing with tool, not necessarily mechanic	",
-"	Confusion say, man who do business in whore house get jerked around	",
-"	Confusion say, man who drive like hell, bound to get there	",
-"	Confusion say, man who drop watch in toilet have crappy time	",
-"	Confusion say, man who eat crackers in bed wake up feeling crummy	",
-"	Confusion say, man who eat too many prunes, get good run for money	",
-"	Confusion say, man who ejaculate in cash register come into money	",
-"	Confusion say, man who fall in vat of molten glass, make spectacle of self	",
-"	Confusion say, man who fart in church, sit in own pew	",
-"	Confusion say, man who fight with wife all day, get no piece at night	",
-"	Confusion say, man who fishes in another woman's well, often catches crab	",
-"	Confusion say, man who get kicked in testicles, left holding the bag	",
-"	Confusion say, man who go to bed with itchy butt wake up with smelly fingers	",
-"	Confusion say, man who have last laugh, not get joke	",
-"	Confusion say, man who jump through screen door, strain self	",
-"	Confusion say, man who keep feet on ground have trouble putting on pants	",
-"	Confusion say, man who kisses girl's behind, get crack in face	",
-"	Confusion say, man who leap off cliff jump to conclusion	",
-"	Confusion say, man who live in glass house, should change in basement	",
-"	Confusion say, man who make love on side of hill not on level	",
-"	Confusion say, man who masturbate, only screwing himself	",
-"	Confusion say, man who push piano down mine shaft, likely to get A flat minor	",
-"	Confusion say, man who put cock on stove, have hot rod	",
-"	Confusion say, man who put face in punchbowl, get punch in nose	",
-"	Confusion say, man who put pea in soup very unclean	",
-"	Confusion say, man who run before bus get tired	",
-"	Confusion say, man who run behind bus get exhausted	",
-"	Confusion say, man who run through airport turnstile backward going to Bangkok	",
-"	Confusion say, man who shoot off mouth, must expect to lose face	",
-"	Confusion say, man who sit on tack, get point	",
-"	Confusion say, man who sits on stool smells like crap	",
-"	Confusion say, man who sleep in bed of nails is holy	",
-"	Confusion say, man who smoke pot, choke on handle	",
-"	Confusion say, man who snort coke, get bubbles up nose	",
-"	Confusion say, man who stand on toilet high on pot	",
-"	Confusion say, man who throws dirt is losing ground	",
-"	Confusion say, man with athletic finger, make broad jump	",
-"	Confusion say, man with big mouth beware of foot	",
-"	Confusion say, man with hand in pocket all day not crazy, just feeling nuts	",
-"	Confusion say, man with head on railroad track, listening for train to come, get splitting headache	",
-"	Confusion say, man with hole in pocket feel cocky all day long	",
-"	Confusion say, man with tool in woman's mouth not necessarily dentist	",
-"	Confusion say, men may have more hair on chest than woman, but on the whole, women have more	",
-"	Confusion say, OK for crap to happen - will decompose	",
-"	Confusion say, passionate kiss like spider web, soon lead to undoing of fly	",
-"	Confusion say, sex is like the army, the closer you are to discharge, the better you feel	",
-"	Confusion say, squirrel who runs up woman's leg not find nuts	",
-"	Confusion say, support bacteria - is only culture some people have	",
-"	Confusion say, to meet girl in park is good, but to park meat in girl is better	",
-"	Confusion say, two wrongs not make right, but two rights make U-turn	",
-"	Confusion say, virginity like bubble. One prick - all gone	",
-"	Confusion say, waitress who sit on lepper's lap, keep tip	",
-"	Confusion say, war not determine who right. War determine who left	",
-"	Confusion say, woman wearing G-string, high on crack	",
-"	Confusion say, woman who dance wearing jock strap, have make believe ballroom	",
-"	Confusion say, woman who fly upside down have crack up	",
-"	Confusion say, woman who go camping must beware of evil intent	",
-"	Confusion say, woman who sink in man's arms, soon have arms in man's sink	",
-"	Confusion say, woman who spend much time on bedspring, may get offspring	"]
+/* =========================================================================
+   Andrew Buck — buckdevs.github.io
+   Vanilla JS: signature product/marketing merge, scroll reveals, micro-detail.
+   No dependencies. Everything degrades gracefully.
+   ========================================================================= */
+(function () {
+  "use strict";
 
-//const messageDiv = document.getElementById("message");
-//document.getElementById('btn').addEventListener('click', getMessage());
+  var prefersReduced = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
 
+  /* ---------------------------------------------------------------------
+     1) Signature moment — the collapsing line between product & marketing
+     --------------------------------------------------------------------- */
+  (function mergeInteraction() {
+    var stage    = document.querySelector("[data-merge]");
+    var range    = document.querySelector("[data-merge-range]");
+    var product  = document.querySelector("[data-merge-product]");
+    var marketing= document.querySelector("[data-merge-marketing]");
+    var divider  = document.querySelector("[data-merge-divider]");
+    var readout  = document.querySelector("[data-merge-readout]");
+    if (!stage || !range || !product || !marketing || !divider) return;
 
-function getMessageIndex() {
-    return Math.floor(Math.random(0, 1) * (messages.length));
-}
+    // programmatic changes (keyboard, load) ease; live dragging feels instant
+    if (!prefersReduced) {
+      var t = "transform .32s cubic-bezier(.2,.7,.2,1), opacity .32s ease";
+      product.style.transition = t;
+      marketing.style.transition = t;
+      divider.style.transition = "transform .32s cubic-bezier(.2,.7,.2,1), opacity .32s ease";
+    }
 
-function getMessage() {
-    let randomMessage = messages[getMessageIndex()];
-    document.getElementById('message').textContent = randomMessage;
-}
+    function render(v) {
+      var p = v / 100;                     // 0 = two disciplines · 1 = nearly one
+      var spread = stage.clientWidth * 0.30;
+      // Never fully stack: keep a residual overlap so both words stay legible —
+      // the line goes "nearly" gone, not completely.
+      var floor = stage.clientWidth * 0.055;
+      var dx = Math.max(spread * (1 - p), floor); // px each word sits from centre
+
+      product.style.transform   = "translate(calc(-50% - " + dx + "px), -50%)";
+      marketing.style.transform = "translate(calc(-50% + " + dx + "px), -50%)";
+
+      var gap = 1 - p;
+      divider.style.opacity = String(Math.max(0, gap * 1.15 - 0.05));
+      divider.style.transform = "translate(-50%, -50%) scaleY(" + (0.25 + 0.75 * gap) + ")";
+
+      range.style.setProperty("--fill", v + "%");
+
+      if (readout) {
+        readout.textContent = p >= 0.985
+          ? "one discipline"
+          : Math.round((1 - p) * 100) + "% apart";
+      }
+    }
+
+    range.addEventListener("input", function () { render(+range.value); });
+    window.addEventListener("resize", function () { render(+range.value); });
+
+    render(+range.value);
+
+    // A one-time, gentle self-demo so the idea reads without any interaction.
+    if (!prefersReduced) {
+      var demoDone = false;
+      function cancelDemo() { demoDone = true; }
+      range.addEventListener("pointerdown", cancelDemo);
+      range.addEventListener("keydown", cancelDemo);
+
+      var io = ("IntersectionObserver" in window)
+        ? new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (e) {
+              if (!e.isIntersecting || demoDone) return;
+              obs.disconnect();
+              nudge();
+            });
+          }, { threshold: 0.6 })
+        : null;
+
+      function nudge() {
+        // ease from current (34) → 100 → settle at 34, once.
+        var start = +range.value, peak = 100;
+        step(start, peak, 900, function () {
+          if (demoDone) return;
+          step(peak, start, 900, function () {});
+        });
+      }
+      function step(from, to, dur, done) {
+        var t0 = null;
+        function frame(ts) {
+          if (demoDone) { range.value = String(to); render(to); return; }
+          if (t0 === null) t0 = ts;
+          var k = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - k, 3);
+          var val = from + (to - from) * eased;
+          range.value = String(val);
+          render(val);
+          if (k < 1) requestAnimationFrame(frame); else done();
+        }
+        requestAnimationFrame(frame);
+      }
+
+      if (io) io.observe(stage); // wait until it's on screen
+    }
+  })();
+
+  /* ---------------------------------------------------------------------
+     2) Scroll reveals
+     --------------------------------------------------------------------- */
+  (function reveals() {
+    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    if (!items.length) return;
+
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      items.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          obs.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+    items.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ---------------------------------------------------------------------
+     3) Sticky header hairline
+     --------------------------------------------------------------------- */
+  (function stickyHeader() {
+    var head = document.querySelector(".site-head");
+    if (!head) return;
+    var ticking = false;
+    function update() {
+      head.classList.toggle("is-stuck", window.scrollY > 6);
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+
+  /* ---------------------------------------------------------------------
+     4) Status-rail clock + year
+     --------------------------------------------------------------------- */
+  (function chrome() {
+    var clock = document.querySelector("[data-clock]");
+    var years = document.querySelectorAll("[data-year]");
+    var pad = function (n) { return n < 10 ? "0" + n : "" + n; };
+
+    if (years.length) {
+      var y = new Date().getFullYear();
+      Array.prototype.forEach.call(years, function (el) { el.textContent = y; });
+    }
+    if (clock) {
+      var tick = function () {
+        var d = new Date();
+        clock.textContent = pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+      };
+      tick();
+      setInterval(tick, 1000);
+    }
+  })();
+
+})();

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Andrew Buck">
+  <rect width="100" height="100" rx="22" fill="#141410"/>
+  <path d="M34 30 L56 50 L34 70" fill="none" stroke="#F0431B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="62" width="20" height="8" rx="4" fill="#F0431B"/>
+</svg>

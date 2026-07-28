@@ -1,19 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Confusion Say</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Click the button for wisdom...</h1>
-    <section class="container">
-        <h2>Confusion say...</h2>
-        <div id="message"></div>
-        <button id="btn" onclick="getMessage()">Become Wise</button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andrew Buck — Product marketing in the age of AI</title>
+  <meta name="description" content="Andrew Buck. A decade of SaaS marketing and product, now building with the best of AI and the parts where humans are still best. Product is marketing, marketing is product." />
+  <meta name="author" content="Andrew Buck" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://buckdevs.github.io" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Andrew Buck — Product marketing in the age of AI" />
+  <meta property="og:description" content="A decade of SaaS marketing and product, now building with the best of AI. Product is marketing, marketing is product." />
+  <meta property="og:url" content="https://buckdevs.github.io" />
+  <meta name="twitter:card" content="summary" />
+
+  <script>document.documentElement.className += " js";</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#work-together">Skip to contact</a>
+
+  <!-- Fixed status rail (technical / builder flourish) -->
+  <div class="status-bar" aria-hidden="true">
+    <span class="status-bar__id">AB</span>
+    <span class="status-bar__sep">/</span>
+    <span class="status-bar__role">product&nbsp;×&nbsp;marketing</span>
+    <span class="status-bar__spacer"></span>
+    <span class="status-bar__clock" data-clock>—</span>
+    <span class="status-bar__blink">_</span>
+  </div>
+
+  <header class="site-head">
+    <a class="wordmark" href="#top">
+      <span class="wordmark__name">Andrew&nbsp;Buck</span>
+      <span class="wordmark__caret" aria-hidden="true">›</span>
+    </a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#what">01 What</a>
+      <a href="#philosophy">02 Why</a>
+      <a href="#expertise">03 How</a>
+      <a href="#building">04 Building</a>
+      <a class="site-nav__cta" href="mailto:hello@andrewbuck.me">Get in touch</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero__kicker mono reveal">Product marketing, rebuilt for right&nbsp;now</p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="reveal" style="--i:0">Product marketing</span>
+        <span class="reveal" style="--i:1">in the age of</span>
+        <span class="reveal hero__title-accent" style="--i:2">AI.</span>
+      </h1>
+      <p class="hero__lede reveal" style="--i:3">
+        A decade of SaaS marketing and product — now spent building with the best parts
+        of AI, joined to the parts where humans are still&nbsp;best.
+      </p>
+
+      <!-- ============ SIGNATURE MOMENT ============ -->
+      <figure class="merge reveal" style="--i:4" aria-labelledby="merge-caption">
+        <div class="merge__stage" data-merge>
+          <span class="merge__word merge__word--product" data-merge-product>Product</span>
+          <span class="merge__word merge__word--marketing" data-merge-marketing>Marketing</span>
+          <span class="merge__divider" data-merge-divider aria-hidden="true"></span>
+        </div>
+
+        <div class="merge__control">
+          <label class="merge__label mono" for="merge-range">
+            <span data-merge-hint>drag to collapse the line</span>
+          </label>
+          <input
+            id="merge-range"
+            class="merge__range"
+            type="range"
+            min="0" max="100" value="34"
+            step="1"
+            aria-label="Distance between product and marketing"
+            data-merge-range />
+          <output class="merge__readout mono" data-merge-readout aria-live="off">66% apart</output>
+        </div>
+
+        <figcaption class="merge__caption mono" id="merge-caption">
+          The line between product and marketing is nearly gone —
+          especially for small, lean teams.
+        </figcaption>
+      </figure>
     </section>
-    <script src="script.js"></script>
-  </body>
+
+    <!-- ============ 01 · WHAT ============ -->
+    <section class="block" id="what" aria-labelledby="what-title">
+      <p class="block__marker mono reveal">01 / What I do</p>
+      <div class="block__body">
+        <h2 class="block__title reveal" id="what-title">
+          Today, product <em>is</em> marketing and marketing <em>is</em> product.
+        </h2>
+        <div class="prose">
+          <p class="reveal">
+            I've spent ten years in SaaS — on the marketing side and the product side, close
+            enough to both to know they were never really separate. Now I build things: with the
+            best parts of AI for speed and leverage, combined with the parts where human judgement
+            still wins.
+          </p>
+          <p class="reveal">
+            The lines between building a product and marketing it are nearly non-existent now —
+            especially for a small, lean team. That collapse isn't a problem to manage. It's the
+            way to build a company today.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 · PHILOSOPHY ============ -->
+    <section class="block block--feature" id="philosophy" aria-labelledby="phil-title">
+      <p class="block__marker mono reveal">02 / What I believe</p>
+      <div class="block__body">
+        <h2 class="block__title reveal" id="phil-title">
+          The edge is judgement, taste, and&nbsp;simply&nbsp;caring.
+        </h2>
+        <div class="prose">
+          <p class="reveal">
+            When everyone has the same tools, the moat isn't the tools. It's judgement — knowing
+            what to build and what to cut. It's taste — knowing when something is actually good.
+            And it's caring, which is rarer than it should be.
+          </p>
+          <p class="reveal pull">
+            If you care how your product looks, care about UX, care about appearances and quality —
+            you're already ahead of 80% of the&nbsp;market.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 · EXPERTISE ============ -->
+    <section class="block" id="expertise" aria-labelledby="exp-title">
+      <p class="block__marker mono reveal">03 / How I work</p>
+      <div class="block__body">
+        <h2 class="block__title reveal" id="exp-title">
+          It all comes down to&nbsp;UX.
+        </h2>
+        <div class="prose">
+          <p class="reveal">
+            Product, marketing, advertising — I approach all of it UX-first, because in the end
+            it's all the same job: making the experience clear, considered, and worth someone's
+            attention.
+          </p>
+          <p class="reveal">
+            With what AI now lets you build, the bottleneck isn't shipping — it's the eye. The
+            taste to make what you ship feel intentional. That eye for UX is the thing that sets
+            the work&nbsp;apart.
+          </p>
+        </div>
+        <ul class="capabilities reveal" aria-label="Areas of work">
+          <li><span class="mono capabilities__idx">a</span> Product &amp; UX</li>
+          <li><span class="mono capabilities__idx">b</span> Positioning &amp; GTM</li>
+          <li><span class="mono capabilities__idx">c</span> Content &amp; SEO</li>
+          <li><span class="mono capabilities__idx">d</span> Advertising</li>
+          <li><span class="mono capabilities__idx">e</span> AI-built tools &amp; sites</li>
+          <li><span class="mono capabilities__idx">f</span> Retention &amp; lifecycle</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 04 · BUILDING ============ -->
+    <section class="block building" id="building" aria-labelledby="build-title">
+      <p class="block__marker mono reveal">04 / What I've been building</p>
+      <h2 class="block__title building__title reveal" id="build-title">
+        Things I've made, or help&nbsp;run.
+      </h2>
+
+      <ol class="projects">
+        <li class="project reveal">
+          <a class="project__link" href="https://retentionedge.co" target="_blank" rel="noopener">
+            <span class="project__num mono">01</span>
+            <span class="project__main">
+              <span class="project__name">RetentionEdge</span>
+              <span class="project__desc">Ecommerce &amp; retention marketing — plus a regular newsletter.</span>
+            </span>
+            <span class="project__host mono">retentionedge.co</span>
+            <span class="project__arrow mono" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="project reveal">
+          <a class="project__link" href="https://ecomappbuilders.com" target="_blank" rel="noopener">
+            <span class="project__num mono">02</span>
+            <span class="project__main">
+              <span class="project__name">Ecom App Builders</span>
+              <span class="project__desc">Everything about app builders and mobile apps for ecommerce.</span>
+            </span>
+            <span class="project__host mono">ecomappbuilders.com</span>
+            <span class="project__arrow mono" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="project reveal">
+          <a class="project__link" href="https://dtcmobileapps.com" target="_blank" rel="noopener">
+            <span class="project__num mono">03</span>
+            <span class="project__main">
+              <span class="project__name">DTC Mobile Apps</span>
+              <span class="project__desc">A directory of B2C ecommerce mobile apps.</span>
+            </span>
+            <span class="project__host mono">dtcmobileapps.com</span>
+            <span class="project__arrow mono" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="project reveal">
+          <a class="project__link" href="https://whichappbuilder.com" target="_blank" rel="noopener">
+            <span class="project__num mono">04</span>
+            <span class="project__main">
+              <span class="project__name">Which App Builder</span>
+              <span class="project__desc">A directory of ecommerce mobile app builders.</span>
+            </span>
+            <span class="project__host mono">whichappbuilder.com</span>
+            <span class="project__arrow mono" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="project reveal">
+          <a class="project__link" href="https://jiujitsuspot.com" target="_blank" rel="noopener">
+            <span class="project__num mono">05</span>
+            <span class="project__main">
+              <span class="project__name">Jiu Jitsu Spot</span>
+              <span class="project__desc">A global directory of BJJ gyms.</span>
+            </span>
+            <span class="project__host mono">jiujitsuspot.com</span>
+            <span class="project__arrow mono" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="project project--current reveal">
+          <a class="project__link" href="https://www.mobiloud.com" target="_blank" rel="noopener">
+            <span class="project__num mono">06</span>
+            <span class="project__main">
+              <span class="project__name">MobiLoud <span class="project__tag mono">current</span></span>
+              <span class="project__desc">Head of Content &amp; SEO — mobile apps for websites.</span>
+            </span>
+            <span class="project__host mono">mobiloud.com</span>
+            <span class="project__arrow mono" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ WORK TOGETHER ============ -->
+    <section class="cta" id="work-together" aria-labelledby="cta-title">
+      <p class="block__marker mono reveal">05 / Let's work together</p>
+      <h2 class="cta__title reveal" id="cta-title">
+        Open to the right&nbsp;projects.
+      </h2>
+      <div class="cta__grid">
+        <p class="cta__lede reveal">
+          I'm always open to consulting or short-term work when it genuinely makes sense.
+        </p>
+        <p class="cta__lede reveal">
+          Or — if you're looking for a semi-technical cofounder with clear, measured judgement
+          and just the right amount of delusional confidence — let's talk.
+        </p>
+      </div>
+      <a class="cta__mail reveal" href="mailto:hello@andrewbuck.me">
+        <span class="mono cta__mail-label">say hello</span>
+        <span class="cta__mail-addr">hello@andrewbuck.me</span>
+        <span class="cta__mail-arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <span class="mono">© <span data-year>2026</span> Andrew Buck</span>
+    <span class="mono site-foot__mid">Built by hand. Product × marketing.</span>
+    <a class="mono" href="mailto:hello@andrewbuck.me">hello@andrewbuck.me</a>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
 </html>
