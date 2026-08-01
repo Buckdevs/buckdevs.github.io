@@ -181,8 +181,6 @@ main > section, .site-foot {
   transition: background .25s var(--ease), color .25s var(--ease),
               border-color .25s var(--ease), transform .25s var(--ease);
 }
-.btn__arrow { transition: transform .25s var(--ease); }
-.btn:hover .btn__arrow { transform: translateX(3px); }
 .btn--primary { background: var(--ink); color: var(--paper); }
 .btn--primary:hover { background: var(--accent); }
 .btn--secondary { border-color: var(--line-strong); color: var(--ink); }
@@ -236,14 +234,8 @@ main > section, .site-foot {
 }
 /* motion when not interacting is handled inline via JS transitions */
 .merge__control {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
   margin-top: clamp(1.4rem, 3vw, 2rem);
 }
-.merge__label { color: var(--ink-mute); font-size: .74rem; text-transform: uppercase; letter-spacing: .12em; white-space: nowrap; }
-.merge__readout { color: var(--ink-soft); font-size: .78rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 
 .merge__range {
   -webkit-appearance: none; appearance: none;
@@ -269,15 +261,6 @@ main > section, .site-foot {
 .merge__range:hover::-webkit-slider-thumb,
 .merge__range:active::-webkit-slider-thumb { transform: scale(1.15); border-color: var(--accent); }
 .merge__range:hover::-moz-range-thumb { border-color: var(--accent); }
-
-.merge__caption {
-  margin-top: clamp(1.2rem, 3vw, 1.8rem);
-  max-width: 52ch;
-  color: var(--ink-mute);
-  font-size: .82rem;
-  line-height: 1.6;
-  letter-spacing: .01em;
-}
 
 /* =========================================================================
    Content blocks
