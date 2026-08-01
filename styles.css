@@ -344,11 +344,8 @@ main > section, .site-foot {
 .projects { border-top: 1px solid var(--line-strong); }
 .project { border-bottom: 1px solid var(--line); }
 .project__link {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  gap: clamp(.9rem, 3vw, 2.2rem);
-  padding: clamp(1.2rem, 2.6vw, 1.8rem) .2rem;
+  display: block;
+  padding: clamp(1.5rem, 3vw, 2.4rem) .2rem;
   position: relative;
   transition: padding-left .3s var(--ease);
 }
@@ -359,28 +356,44 @@ main > section, .site-foot {
 .project:hover .project__link { padding-left: 1.4rem; }
 .project:hover .project__link::before { width: 3px; }
 
-.project__main { display: grid; gap: .3rem; min-width: 0; }
 .project__name {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(1.35rem, 3.4vw, 2.1rem);
+  font-size: clamp(1.4rem, 3.4vw, 2.1rem);
   letter-spacing: -0.03em;
   line-height: 1.05;
-  display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap;
+  color: var(--ink);
+  transition: color .25s var(--ease);
 }
-.project__desc { color: var(--ink-soft); font-size: clamp(.95rem, 1.4vw, 1.08rem); line-height: 1.4; max-width: 46ch; }
-.project__host { color: var(--ink-mute); font-size: .78rem; letter-spacing: .02em; white-space: nowrap; }
-.project__arrow {
-  font-size: 1.2rem; color: var(--ink-mute);
-  transition: transform .3s var(--ease), color .3s var(--ease);
-}
-.project:hover .project__arrow { color: var(--accent); transform: translate(3px, -3px); }
-.project__name .project__name,
-.project:hover .project__name { }
+.project:hover .project__name { color: var(--accent); }
 
-@media (max-width: 720px) {
-  .project__link { grid-template-columns: 1fr auto; }
-  .project__host { display: none; }
+.project__arrow {
+  color: var(--accent);
+  font-size: .82em;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.project:hover .project__arrow,
+.project__link:focus-visible .project__arrow { opacity: 1; transform: translateX(0); }
+
+.project__host {
+  display: block;
+  margin-top: .5rem;
+  color: var(--ink-mute);
+  font-size: .8rem;
+  letter-spacing: .02em;
+}
+.project__desc {
+  display: block;
+  margin-top: .9rem;
+  max-width: 64ch;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.55;
 }
 
 /* =========================================================================
