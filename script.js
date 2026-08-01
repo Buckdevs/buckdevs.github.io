@@ -128,24 +128,7 @@
   })();
 
   /* ---------------------------------------------------------------------
-     3) Sticky header hairline
-     --------------------------------------------------------------------- */
-  (function stickyHeader() {
-    var head = document.querySelector(".site-head");
-    if (!head) return;
-    var ticking = false;
-    function update() {
-      head.classList.toggle("is-stuck", window.scrollY > 6);
-      ticking = false;
-    }
-    window.addEventListener("scroll", function () {
-      if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
-    }, { passive: true });
-    update();
-  })();
-
-  /* ---------------------------------------------------------------------
-     4) Status-rail clock + year
+     3) Status-rail clock + year
      --------------------------------------------------------------------- */
   (function chrome() {
     var clock = document.querySelector("[data-clock]");
