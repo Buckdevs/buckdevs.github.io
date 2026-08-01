@@ -301,42 +301,40 @@ main > section, .site-foot {
 
 .block--feature { background: var(--paper-2); }
 
-/* tech ticker (My build stack) — full-bleed marquee */
+/* tech ticker (My build stack) — full-bleed marquee of subtle pills */
 .marquee {
-  margin-top: clamp(2.6rem, 5vw, 3.6rem);
+  margin-top: clamp(2.4rem, 5vw, 3.4rem);
   width: 100vw;
   margin-left: calc(50% - 50vw);
   overflow: hidden;
-  padding-block: .4rem;
-  border-block: 1px solid var(--line);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 42s linear infinite;
+  animation: marquee-scroll 46s linear infinite;
 }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 .marquee__group {
   display: flex;
   align-items: center;
   flex: 0 0 auto;
+  gap: .7rem;
+  padding-right: .7rem;
 }
 .marquee__item {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(1.3rem, 2.6vw, 2rem);
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  color: var(--ink-soft);
   white-space: nowrap;
-  padding-block: .3rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: .4rem .9rem;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
 }
-.marquee__sep {
-  color: var(--accent);
-  margin: 0 clamp(1.4rem, 3vw, 2.6rem);
-  font-size: .8em;
-}
+.marquee__item:hover { border-color: var(--accent); color: var(--ink); }
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
