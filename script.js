@@ -128,24 +128,13 @@
   })();
 
   /* ---------------------------------------------------------------------
-     3) Status-rail clock + year
+     3) Footer year
      --------------------------------------------------------------------- */
-  (function chrome() {
-    var clock = document.querySelector("[data-clock]");
+  (function year() {
     var years = document.querySelectorAll("[data-year]");
-    var pad = function (n) { return n < 10 ? "0" + n : "" + n; };
-
     if (years.length) {
       var y = new Date().getFullYear();
       Array.prototype.forEach.call(years, function (el) { el.textContent = y; });
-    }
-    if (clock) {
-      var tick = function () {
-        var d = new Date();
-        clock.textContent = pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
-      };
-      tick();
-      setInterval(tick, 1000);
     }
   })();
 

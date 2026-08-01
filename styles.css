@@ -40,7 +40,6 @@
   --maxw: 1180px;
   --pad: clamp(1.25rem, 5vw, 4rem);
   --gutter: max(var(--pad), calc((100% - var(--maxw)) / 2));
-  --bar-h: 30px;
 
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
@@ -59,7 +58,6 @@ body {
   letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  padding-bottom: var(--bar-h);
   overflow-x: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -101,35 +99,6 @@ img, svg { display: block; max-width: 100%; }
 /* horizontal centering used by every top-level band */
 main > section, .site-foot {
   padding-inline: var(--gutter);
-}
-
-/* =========================================================================
-   Status rail (fixed bottom — the "IDE" flourish)
-   ========================================================================= */
-.status-bar {
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  height: var(--bar-h);
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: .55rem;
-  padding-inline: clamp(1rem, 4vw, 2rem);
-  font-family: var(--font-mono);
-  font-size: .72rem;
-  letter-spacing: .04em;
-  color: var(--ink-mute);
-  background: color-mix(in srgb, var(--paper) 82%, transparent);
-  backdrop-filter: blur(8px);
-  border-top: 1px solid var(--line);
-}
-.status-bar__id { color: var(--ink); font-weight: 600; }
-.status-bar__sep { color: var(--line-strong); }
-.status-bar__spacer { flex: 1; }
-.status-bar__clock { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.status-bar__blink { color: var(--accent); }
-@media (max-width: 560px) {
-  .status-bar__role { display: none; }
 }
 
 /* =========================================================================
@@ -301,50 +270,6 @@ main > section, .site-foot {
 
 .block--feature { background: var(--paper-2); }
 
-/* tech ticker (My build stack) — full-bleed marquee of subtle pills */
-.marquee {
-  margin-top: clamp(2.4rem, 5vw, 3.4rem);
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-.marquee__track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 46s linear infinite;
-}
-.marquee:hover .marquee__track { animation-play-state: paused; }
-.marquee__group {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-  gap: .7rem;
-  padding-right: .7rem;
-}
-.marquee__item {
-  flex: 0 0 auto;
-  font-family: var(--font-mono);
-  font-size: .82rem;
-  color: var(--ink-soft);
-  white-space: nowrap;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: .4rem .9rem;
-  transition: border-color .2s var(--ease), color .2s var(--ease);
-}
-.marquee__item:hover { border-color: var(--accent); color: var(--ink); }
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee { -webkit-mask-image: none; mask-image: none; }
-  .marquee__track { animation: none; flex-wrap: wrap; }
-  .marquee__group:nth-child(2) { display: none; }
-}
-
 /* =========================================================================
    Building / projects
    ========================================================================= */
@@ -438,7 +363,7 @@ main > section, .site-foot {
 .cta__mail {
   margin-top: clamp(2.6rem, 6vw, 4rem);
   display: inline-grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 1rem clamp(1rem, 3vw, 2rem);
   padding: clamp(1.2rem, 3vw, 1.8rem) clamp(1.4rem, 3vw, 2.2rem);
@@ -448,10 +373,6 @@ main > section, .site-foot {
   transition: border-color .3s var(--ease), background .3s var(--ease);
 }
 .cta__mail:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
-.cta__mail-label {
-  font-size: .74rem; text-transform: uppercase; letter-spacing: .14em;
-  color: var(--accent);
-}
 .cta__mail-addr {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(1.2rem, 5.2vw, 2.8rem); letter-spacing: -0.03em;
@@ -459,10 +380,6 @@ main > section, .site-foot {
 }
 .cta__mail-arrow { font-size: clamp(1.4rem, 4vw, 2.2rem); color: var(--accent); transition: transform .3s var(--ease); }
 .cta__mail:hover .cta__mail-arrow { transform: translateX(6px); }
-@media (max-width: 560px) {
-  .cta__mail { grid-template-columns: 1fr auto; }
-  .cta__mail-label { grid-column: 1 / -1; }
-}
 
 /* =========================================================================
    Footer
@@ -480,8 +397,6 @@ main > section, .site-foot {
 }
 .site-foot a { color: var(--ink-soft); transition: color .2s var(--ease); }
 .site-foot a:hover { color: var(--accent); }
-.site-foot__mid { color: var(--ink-mute); }
-@media (max-width: 560px) { .site-foot__mid { order: 3; width: 100%; } }
 
 /* =========================================================================
    Reveal animation
@@ -497,6 +412,5 @@ main > section, .site-foot {
 
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .status-bar__blink { visibility: hidden; }
   *, *::before, *::after { animation-duration: .001ms !important; }
 }
