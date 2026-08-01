@@ -301,40 +301,51 @@ main > section, .site-foot {
 
 .block--feature { background: var(--paper-2); }
 
-/* tech stack (How I build) */
-.stack {
-  margin-top: clamp(2rem, 4vw, 2.8rem);
-  display: grid;
-  gap: 1.5rem;
+/* tech ticker (My build stack) — full-bleed marquee */
+.marquee {
+  margin-top: clamp(2.6rem, 5vw, 3.6rem);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  padding-block: .4rem;
+  border-block: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
 }
-.stack__group {
+.marquee__track {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .55rem .7rem;
+  width: max-content;
+  animation: marquee-scroll 42s linear infinite;
 }
-.stack__label {
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: var(--ink-mute);
-  margin-right: .3rem;
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__group {
+  display: flex;
+  align-items: center;
   flex: 0 0 auto;
 }
-.stack__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .55rem;
+.marquee__item {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+  padding-block: .3rem;
 }
-.stack__list li {
-  font-size: .82rem;
-  color: var(--ink-soft);
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  padding: .38rem .8rem;
-  transition: border-color .2s var(--ease), color .2s var(--ease);
+.marquee__sep {
+  color: var(--accent);
+  margin: 0 clamp(1.4rem, 3vw, 2.6rem);
+  font-size: .8em;
 }
-.stack__list li:hover { border-color: var(--accent); color: var(--ink); }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee__track { animation: none; flex-wrap: wrap; }
+  .marquee__group:nth-child(2) { display: none; }
+}
 
 /* =========================================================================
    Building / projects
